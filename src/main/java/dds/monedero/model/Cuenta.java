@@ -47,6 +47,7 @@ public class Cuenta {
     if (getSaldo() - cuanto < 0) {
       throw new SaldoMenorException("No puede sacar mas de " + getSaldo() + " $");
     }
+    //Temporary Field: se definen montoExtraidoHoy y limite como variables temporales, esto puede no se define como un problema, pero se menciona para su analisis
     double montoExtraidoHoy = getMontoExtraidoA(LocalDate.now());
     double limite = 1000 - montoExtraidoHoy;
     if (cuanto > limite) {
