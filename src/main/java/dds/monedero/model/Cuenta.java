@@ -11,12 +11,12 @@ import java.util.List;
 
 public class Cuenta {
 
-  private double saldo = 0;
+  private double saldo = 0; //Duplicated Code estoy seteando el saldo dos veces con el mismo valor de manera innecesaria
   private List<Movimiento> movimientos = new ArrayList<>();
 
   public Cuenta() {
     saldo = 0;
-  }
+  } //Duplicated Code estoy seteando el saldo dos veces con el mismo valor de manera innecesaria
 
   public Cuenta(double montoInicial) {
     saldo = montoInicial;
@@ -38,6 +38,8 @@ public class Cuenta {
     new Movimiento(LocalDate.now(), cuanto, true).agregateA(this);
   }
 
+
+  //1 error
   public void sacar(double cuanto) {
     if (cuanto <= 0) {
       throw new MontoNegativoException(cuanto + ": el monto a ingresar debe ser un valor positivo");
