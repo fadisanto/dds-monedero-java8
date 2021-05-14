@@ -61,13 +61,14 @@ public class Cuenta {
     movimientos.add(movimiento);
   }
 
+  // Message Chains: hay un encadenamiento de muchos mensajes en el metodo, puede ser que no haya una mejor solucion en este caso pero es para tenerlo en cuenta
   public double getMontoExtraidoA(LocalDate fecha) {
     return getMovimientos().stream()
         .filter(movimiento -> !movimiento.isDeposito() && movimiento.getFecha().equals(fecha))
         .mapToDouble(Movimiento::getMonto)
         .sum();
   }
-
+  //
   public List<Movimiento> getMovimientos() {
     return movimientos;
   }
