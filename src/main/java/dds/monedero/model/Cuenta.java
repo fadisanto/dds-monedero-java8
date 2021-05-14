@@ -26,6 +26,10 @@ public class Cuenta {
     this.movimientos = movimientos;
   }
 
+  //Tengo duda en este caso si hace referencia a Long Method ya podriamos delegar las condiciones de los IF en otros metodos
+  // para solo enviar el mensaje a la hora de hacer la validacion
+  // Por otro lado tanto poner como sacar actuan como Middle Man, ya que la agregacion del movimiento a la lista en lugar de hacerlo directamente
+  // lo delegan en otro metodo innecesariamente (agregateA)
   public void poner(double cuanto) {
     if (cuanto <= 0) {
       throw new MontoNegativoException(cuanto + ": el monto a ingresar debe ser un valor positivo");
@@ -39,7 +43,7 @@ public class Cuenta {
   }
 
 
-  //1 error
+
   public void sacar(double cuanto) {
     if (cuanto <= 0) {
       throw new MontoNegativoException(cuanto + ": el monto a ingresar debe ser un valor positivo");
